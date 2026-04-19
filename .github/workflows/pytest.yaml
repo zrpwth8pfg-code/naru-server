@@ -7,6 +7,8 @@ jobs:
   ## job name
   test:
     runs-on: ubuntu-latest
+    env:
+      DB_USER: "postgres"
 
     steps:
       ## ソースコードチェックアウト
@@ -27,3 +29,6 @@ jobs:
         env:
           PYTHONPATH: .
         run: pytest -v
+
+      - name: Print DB_USER
+        run: echo "DB_USER ->  ${DB_USER}"
